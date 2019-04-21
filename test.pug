@@ -11,4 +11,113 @@ html(lang="en")
         title nexter &mdash; your home, your freedom
     
     body
-        p Happy sweet
+        div(class="container")
+            div(class="sidebar") Sidebar
+            
+            div(class="header") Header
+            
+            div(class="realtors") Top 3 realtors
+
+            section(class="features")
+                -
+                    var features = [
+                        {
+                            icon: 'global',
+                            heading: 'World\'s best luxury homes',
+                            text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus.',
+                        },
+                        {
+                            icon: 'trophy',
+                            heading: 'Only the best properties',
+                            text: 'Voluptatum mollitia quae. Vero ipsum sapiente molestias accusamus rerum sed a eligendi aut quia.',
+                        },
+                        {
+                            icon: 'map-pin',
+                            heading: 'All homes in top locations',
+                            text: 'Tenetur distinctio necessitatibus pariatur voluptatibus quidem consequatur harum.',
+                        },
+                        {
+                            icon: 'key',
+                            heading: 'New home in one week',
+                            text: 'Vero ipsum sapiente molestias accusamus rerum. Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
+                        },
+                        {
+                            icon: 'presentation',
+                            heading: 'Top 1% realtors',
+                            text: 'Quidem consequatur harum, voluptatum mollitia quae. Tenetur distinctio necessitatibus pariatur voluptatibus.',
+                        },
+                        {
+                            icon: 'lock',
+                            heading: 'Secure payments on nexter',
+                            text: 'Pariatur voluptatibus quidem consequatur harum, voluptatum mollitia quae.',
+                        },
+                    ]
+                each feature in features
+                    div(class="feature")
+                        svg(class="feature__icon")
+                            use(xlink:href=`img/sprite.svg#icon-${feature.icon}`)
+                        h4(class="heading-4 heading-4--dark")= feature.heading
+                        p(class="feature__text")= feature.text
+            
+            div(class="story__pictures")
+                img(
+                    src="img/story-1.jpeg"
+                    alt="Couple with new house"
+                    class="story__img--1"
+                )
+                img(
+                    src="img/story-2.jpeg"
+                    alt="New house"
+                    class="story__img--2"
+                )
+            
+            div(class="story__content")
+                h3(class="heading-3 mb-sm") Happy Customers
+                h2(class="heading-2 heading-2--dark mb-md") &ldquo;The best decision of our lives&rdquo;
+                p(class="story__text") Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus. Quidem consequatur harum volupta!
+                button(class="btn") Find your own home
+
+            section(class="homes")
+                -
+                    var homes = [
+                        {
+                            index: 1,
+                            name: 'Beautiful Family House',
+                            location: 'USA',
+                            rooms: 5,
+                            area: 325,
+                            price: '$1,200,000',
+                        },
+                    ]
+                each home in homes
+                    div(class="home")
+                        img(
+                            src=`img/house-${home.index}.jpeg`
+                            alt=`House ${home.index}`
+                            class="home__img"
+                        )
+                        svg(class="home__like")
+                            use(xlink:href="img/sprite.svg#icon-heart-full")
+                        h5(class="home__name")= home.name
+                        div(class="home__location")
+                            svg
+                                use(xlink:href="img/sprite.svg#icon-map-pin")
+                            p= home.location
+                        div(class="home__rooms")
+                            svg
+                                use(xlink:href="img/sprite.svg#icon-profile-male")
+                            p= `${home.rooms} rooms`
+                        div(class="home__area")
+                            svg
+                                use(xlink:href="img/sprite.svg#icon-expand")
+                            p= `${home.area} m`
+                                sup 2
+                        div(class="home__price")
+                            svg
+                                use(xlink:href="img/sprite.svg#icon-key")
+                            p= `${home.price}`
+                        button(class="cta") Contact Realtor
+
+            section(class="gallery") Gallery
+
+            footer(class="footer") Footer
