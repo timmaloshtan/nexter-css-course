@@ -17,7 +17,20 @@ module.exports = {
       },
       {
         test: /\.(css|sass|scss)$/,
-        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!sass-loader' })
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+            },
+            {
+              loader: 'sass-loader',
+            },
+          ]
+        })
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -43,5 +56,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     compress: true,
+    open: 'firefox',
+    port: 8080,
+    hot: true,
   },
 };
