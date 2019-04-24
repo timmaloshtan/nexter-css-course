@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: './sass/main.scss',
   output: {
-    path: path.resolve(__dirname),
+    path: path.resolve(__dirname, 'build'),
     filename: 'css/style.css',
   },
   mode: 'development',
@@ -35,7 +35,20 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'url-loader',
+          // {
+          //   loader: 'file-loader',
+          //   options: {
+          //     name: 'img/[name].[ext]',
+          //   }
+          // },
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              publicPath: "../",
+              name: 'img/[name].[ext]',
+            }
+          }
         ],
       }
     ],
@@ -44,11 +57,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './test.pug',
       filename: 'index.html',
+      favicon: 'img/favicon.png',
+      cache: false,
     }),
     new ExtractTextPlugin('css/style.css'),
   ],
   devServer: {
-    contentBase: path.join(__dirname),
+    contentBase: path.join(__dirname, 'build'),
     compress: true,
     open: 'firefox',
     port: 8080,
