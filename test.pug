@@ -7,7 +7,8 @@ html(lang="en")
 
         link(href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i|Nunito:300,300i" rel="stylesheet")
         title nexter &mdash; your home, your freedom
-    
+        -
+            require("./img/sprite.svg")
     body
         div(class="container")
             div(class="sidebar") Sidebar
@@ -59,12 +60,12 @@ html(lang="en")
             
             div(class="story__pictures")
                 img(
-                    src="img/story-1.jpeg"
+                    src=require("./img/story-1.jpeg")
                     alt="Couple with new house"
                     class="story__img--1"
                 )
                 img(
-                    src="img/story-2.jpeg"
+                    src=require("./img/story-2.jpeg")
                     alt="New house"
                     class="story__img--2"
                 )
@@ -86,11 +87,51 @@ html(lang="en")
                             area: 325,
                             price: '$1,200,000',
                         },
+                        {
+                            index: 2,
+                            name: 'Cozy Country House',
+                            location: 'UK',
+                            rooms: 3,
+                            area: 250,
+                            price: '$850,000',
+                        },
+                        {
+                            index: 3,
+                            name: 'Modern Glass Villa',
+                            location: 'Canada',
+                            rooms: 6,
+                            area: 450,
+                            price: '$2,750,000',
+                        },
+                        {
+                            index: 4,
+                            name: 'Large Rustic Villa',
+                            location: 'Portugal',
+                            rooms: 6,
+                            area: 480,
+                            price: '$1,950,000',
+                        },
+                        {
+                            index: 5,
+                            name: 'Majestic Palace House',
+                            location: 'Germany',
+                            rooms: 18,
+                            area: 4230,
+                            price: '$9,500,000',
+                        },
+                        {
+                            index: 6,
+                            name: 'Modern Family Apartment',
+                            location: 'Germany',
+                            rooms: 3,
+                            area: 180,
+                            price: '$600,000',
+                        },
                     ]
                 each home in homes
                     div(class="home")
                         img(
-                            src=`img/house-${home.index}.jpeg`
+                            src=require(`./img/house-${home.index}.jpeg`)
                             alt=`House ${home.index}`
                             class="home__img"
                         )
@@ -114,8 +155,17 @@ html(lang="en")
                             svg
                                 use(xlink:href="img/sprite.svg#icon-key")
                             p= `${home.price}`
-                        button(class="cta") Contact Realtor
+                        button(class="btn home__btn") Contact Realtor
 
-            section(class="gallery") Gallery
+            section(class="gallery")
+                each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                    figure(
+                        class=`gallery__item gallery__item--${val}`
+                    )
+                        img(
+                            src=require(`./img/gal-${val}.jpeg`)
+                            alt=`Galery image ${val}`
+                            class="gallery__img"
+                        )
 
             footer(class="footer") Footer
