@@ -11,7 +11,8 @@ html(lang="en")
             require("./img/sprite.svg")
     body
         div(class="container")
-            div(class="sidebar") Sidebar
+            div(class="sidebar")
+                button(class="nav-btn")
             
             div(class="header") Header
             
@@ -168,4 +169,19 @@ html(lang="en")
                             class="gallery__img"
                         )
 
-            footer(class="footer") Footer
+            footer(class="footer")
+                ul(class="nav")
+                    - 
+                        var links = [
+                            'Find your dream home',
+                            'Request proposal',
+                            'Download home planner',
+                            'Contact us',
+                            'Submit your property',
+                            'Come work with us',
+                        ]
+                    each val in links
+                        li(class="nav__item")
+                            a(class="nav__link" href="#")= `${val}`
+                p(class="copyright")
+                    != "&copy; Designed by Jonas Schmedtmann. Developed by Tim Maloshtan."
