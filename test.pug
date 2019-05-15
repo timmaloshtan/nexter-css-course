@@ -23,14 +23,14 @@ html(lang="en")
                 h3(class="heading-3") Your own home:
                 h1(class="heading-1") The ultimate personal freedom
                 button(class="btn header__btn") View our properties
-                div(class="header__seenon-text") Seen on
+                div(class="header__seenon-text") As seen on
                 div(class="header__seenon-logos")
                     -
                         var logos = [
                             "logo-bbc.png",
                             "logo-forbes.png",
+                            "logo-techcrunch.png",
                             "logo-bi.png",
-                            "logo-techcrunch.png"
                         ]
                     each logo, index in logos
                         img(
@@ -38,7 +38,8 @@ html(lang="en")
                             alt=`Seen on logo ${index + 1}`
                         )
 
-            div(class="realtors") Top 3 realtors
+            div(class="realtors")
+                h3()
 
             section(class="features")
                 -
