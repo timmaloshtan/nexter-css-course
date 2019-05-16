@@ -65,7 +65,6 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     compress: true,
-    open: 'firefox',
     port: 8080,
     hot: true,
   },

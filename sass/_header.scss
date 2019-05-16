@@ -13,6 +13,14 @@
     grid-template-columns: minmax(min-content ,max-content);
     justify-content: center;
 
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 5rem;
+    }
+
     &__logo {
         height: 3rem;
         justify-self: center;
@@ -46,6 +54,7 @@
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;
         align-items: center;
+        grid-column-gap: 3rem;
 
         img {
             max-height: 2.5rem;
